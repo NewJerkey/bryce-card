@@ -109,7 +109,7 @@ class MyCard extends LitElement {
           insane moment in his favorite class: IST 256. He can not believe what
           he is seeing!
         </p>
-        <button class="details">Details</button>
+        <button class="details" @click=${this.details}>Details</button>
       </div>
     `;
   }
@@ -144,6 +144,14 @@ class MyCard extends LitElement {
       color += letters[Math.floor(Math.random() * 16)];
     }
     this.shadowRoot.querySelector('.card').style.backgroundColor = color;
+  }
+
+  details(event) {
+    if (this.shadowRoot.querySelector('.paragraph').style.display === 'none') {
+      this.shadowRoot.querySelector('.paragraph').style.display = 'block';
+    } else {
+      this.shadowRoot.querySelector('.paragraph').style.display = 'none';
+    }
   }
 }
 
